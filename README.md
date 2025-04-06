@@ -90,7 +90,7 @@
 
 <details><summary>Deploy To Koyeb</summary>
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&builder=dockerfile&repository=https://github.com/HA-Bots/Auto-Filter-Bot)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&builder=dockerfile&repository=https://github.com/Donsettan/Auto-Filter-Bot)
 
 </details>
 
