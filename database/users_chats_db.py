@@ -40,10 +40,10 @@ class Database:
     }
     
     default_prm = {
-        'expire': '',
+        'expire': 'None',
         'trial': False,
         'plan': '',
-        'premium': False
+        'premium': True
     }
 
     def __init__(self):
