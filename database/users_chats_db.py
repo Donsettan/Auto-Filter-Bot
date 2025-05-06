@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from info import TIME_ZONE, ADMINS, DATABASE_NAME, DATA_DATABASE_URL, FILES_DATABASE_URL, SECOND_FILES_DATABASE_URL, FORCE_SUB_CHANNELS, IMDB_TEMPLATE, WELCOME_TEXT, LINK_MODE, TUTORIAL, SHORTLINK_URL, SHORTLINK_API, SHORTLINK, FILE_CAPTION, IMDB, WELCOME, SPELL_CHECK, PROTECT_CONTENT, AUTO_FILTER, AUTO_DELETE, IS_STREAM, VERIFY_EXPIRE
+from info import ADMINS, DATABASE_NAME, DATA_DATABASE_URL, FILES_DATABASE_URL, SECOND_FILES_DATABASE_URL, FORCE_SUB_CHANNELS, IMDB_TEMPLATE, WELCOME_TEXT, LINK_MODE, TUTORIAL, SHORTLINK_URL, SHORTLINK_API, SHORTLINK, FILE_CAPTION, IMDB, WELCOME, SPELL_CHECK, PROTECT_CONTENT, AUTO_FILTER, AUTO_DELETE, IS_STREAM, VERIFY_EXPIRE
 import time
 from datetime import datetime
 
@@ -51,6 +51,7 @@ class Database:
         self.grp = data_db.Groups
         self.prm = data_db.Premiums
         self.req = data_db.Requests
+        self.con = data_db.Connections
 
     def new_user(self, id, name):
         return dict(
@@ -216,6 +217,20 @@ class Database:
 
     def get_premium_count(self):
         return self.prm.count_documents({'status.premium': True})
+    
+    def add_connect(self, group_id, user_id):
+        user= self.con.find_one({'_id': user_id})
+        if user:
+            if group_id not in user["group_ids"]:
+                self.con.update_one({'_id': user_id}, {"$push": {"group_ids": group_id}})
+        else:
+            self.con.insert_one({'_id': user_id, 'group_ids': [group_id]})
 
+    def get_connections(self, user_id):
+        user = self.con.find_one({'_id': user_id})
+        if user:
+            return user["group_ids"]
+        else:
+            return []
 
 db = Database()

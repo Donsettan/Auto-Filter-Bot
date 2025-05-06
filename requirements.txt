@@ -1,7 +1,6 @@
 hydrogram
 tgcrypto
 pymongo
-pytz
 cinemagoer
 shortzy
 aiohttp
@@ -10,3 +9,4 @@ speedtest-cli
 uvloop
 requests
 qrcode
+Pillow

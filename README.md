@@ -27,6 +27,10 @@
 - [x] 𝐴𝑢𝑡𝑜 𝐷𝑒𝑙𝑒𝑡𝑒
 - [x] 𝐴𝑛𝑑 𝑀𝑜𝑟𝑒...
 
+## Demo Bot
+* [Try this bot](https://t.me/HA_Auto_Filter_Test_Bot)
+* Here bot you can test features and more before deploy your own bot
+
 ## 𝐶𝑜𝑚𝑚𝑎𝑛𝑑𝑠
 ```
 • /start - to check bot alive or not.
@@ -35,11 +39,6 @@
 • /ping - view bot's ping (latency)
 • /img_2_link - upload image to uguu.se and get link
 • /settings - to change group settings as your wish.
-• /set_template - to set custom imdb template.
-• /set_caption - to set custom bot files caption.
-• /set_shortlink - group admin can set custom shortlink.
-• /get_custom_settings - to get your group settings details.
-• /set_welcome - to set custom new joined users welcome message for group.
 • /delete - to delete files using query.
 • /delete_all - to delete all indexed file.
 • /broadcast - to send message to all bot users.
@@ -47,7 +46,6 @@
 • /pin_broadcast - to send message as pin to all bot users.
 • /pin_grp_broadcast - to send message as pin to all groups.
 • /restart - to restart bot.
-• /set_tutorial - to set custom tutorial link in result page button.
 • /id - to check group or channel id.
 • /leave - to leave your bot from particular group.
 • /unban_grp - to enable group.
@@ -153,7 +151,9 @@ sudo docker logs Auto-Filter-Bot
 * [![EvaMaria](https://img.shields.io/static/v1?label=EvaMaria&message=Developers&color=critical)](https://t.me/TeamEvamaria)
 * [![Hansaka](https://img.shields.io/static/v1?label=Hansaka&message=TG&color=critical)](https://t.me/Hansaka_Anuhas)
 
-## Buy me a coffee
+## Donate
+* If you feel like showing your appreciation for this project, then how about buying me a coffee.
+
 <a href="https://www.buymeacoffee.com/hansakaanuhas" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## Thanks To
