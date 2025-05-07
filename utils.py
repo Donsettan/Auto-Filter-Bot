@@ -177,9 +177,9 @@ async def is_premium(user_id, bot):
     if mp['premium']:
         if mp['expire'] < datetime.now():
             await bot.send_message(user_id, f"Your premium {mp['plan']} plan is expired in {mp['expire'].strftime('%Y.%m.%d %H:%M:%S')}, use /plan to activate new plan again")
-            mp['expire'] = ''
+            mp['expire'] = 'None'
             mp['plan'] = ''
-            mp['premium'] = False
+            mp['premium'] = True
             db.update_plan(user_id, mp)
             return False
         return True
