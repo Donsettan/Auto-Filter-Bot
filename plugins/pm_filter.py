@@ -1109,7 +1109,7 @@ async def auto_filter(client, msg, s, spoll=False):
     files_link = ""
     if settings['links']:
         btn = []
-        for file_num, file in enumerate(files, start=1):
+        for file_num, file in enumerate(files, start=0):
             files_link += f"""<b>\n\n{file_num}. <a href=https://t.me/{temp.U_NAME}?start=file_{message.chat.id}_{file['_id']}>[{get_size(file['file_size'])}] {file['file_name']}</a></b>"""
     else:
         btn = [[
