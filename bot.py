@@ -22,6 +22,7 @@ from utils import temp, get_readable_time
 from database.users_chats_db import db
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from hydrogram.raw import functions
 
 uvloop.install()
 
@@ -35,8 +36,19 @@ class Bot(Client):
             plugins={"root": "plugins"}
         )
 
+
+class Bot(Client):
     async def start(self):
         await super().start()
+
+        # Force sync time by sending a Ping with current unix time (milliseconds)
+        import time
+        ping_id = int(time.time() * 1000)
+        try:
+            await self.send_raw(functions.Ping(ping_id=ping_id))
+        except Exception as e:
+            logger.error(f"Ping for time sync failed: {e}")
+
         temp.START_TIME = time.time()
         b_users, b_chats = await db.get_banned()
         temp.BANNED_USERS = b_users
@@ -67,6 +79,7 @@ class Bot(Client):
             logger.error("Make sure bot admin in LOG_CHANNEL, exiting now")
             exit()
         logger.info(f"@{me.username} is started now ✓")
+
 
     async def stop(self, *args):
         await super().stop()
